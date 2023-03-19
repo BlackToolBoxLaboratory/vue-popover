@@ -1,0 +1,74 @@
+{
+  "name": "@blacktoolbox/vue-popover",
+  "packageName": "btblab-vue-popover",
+  "version": "1.0.0",
+  "description": "Popover maker based on Vue3",
+  "keywords": [
+    "blacktoolbox",
+    "btblab",
+    "btb",
+    "vue3",
+    "popover"
+  ],
+  "license": "MIT",
+  "author": "Van Noel <vannoel0628@gmail.com>",
+  "homepage": "https://blacktoolboxlaboratory.github.io/vue/#/packages/popover",
+  "bugs": {
+    "url": "https://github.com/BlackToolBoxLaboratory/vue-popover/issues",
+    "email": "vannoel0628@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackToolBoxLaboratory/vue-popover.git"
+  },
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "types": "types/index.d.ts",
+  "type": "module",
+  "files": [
+    "types",
+    "lib",
+    "esm",
+    "umd",
+    "LICENSE"
+  ],
+  "scripts": {
+    "cleanModules": "rimraf node_modules",
+    "build": "rollup -c",
+    "lint": "eslint --fix --ext .ts,.vue",
+    "types": "vue-tsc --declaration --emitDeclarationOnly",
+    "prepare": "npm run build && npm run types"
+  },
+  "dependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/types": "^7.21.0",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.0",
+    "@rushstack/eslint-patch": "^1.1.4",
+    "@types/node": "^18.11.12",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/eslint-config-typescript": "^11.0.2",
+    "@vue/tsconfig": "^0.1.3",
+    "autoprefixer": "^10.4.13",
+    "esbuild": "^0.17.10",
+    "eslint": "^8.22.0",
+    "eslint-plugin-vue": "^9.3.0",
+    "postcss": "^8.4.21",
+    "prettier": "^2.7.1",
+    "rimraf": "^4.1.2",
+    "rollup": "^3.17.2",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "rollup-plugin-vue": "^6.0.0",
+    "sass": "^1.58.3",
+    "typescript": "^4.9.5",
+    "vite": "^4.0.0",
+    "vue-template-compiler": "^2.7.14",
+    "vue-tsc": "^1.0.12"
+  }
+}
