@@ -1,5 +1,6 @@
 <template>
-  <div :class="['btb-vue-popover', `popover-${popoverId}`, `popover-align-${computedAlign}`, { 'popover-arrow': props.withArrow }]"
+  <div
+    :class="['btb-vue-popover', `popover-${popoverId}`, `popover-align-${computedAlign}`, { 'popover-arrow': props.withArrow }]"
     :style="{ ...getStyle(['btb-vue-list', `popover-align-${computedAlign}`, props.withArrow ? 'popover-arrow' : ''], props.styleObj) }">
     <div ref="refTrigger" class="popover_trigger" :style="{ ...getStyle(['popover_trigger'], props.styleObj) }"
       @click="togglePopover">
@@ -39,9 +40,6 @@ export default defineComponent({
     },
     state: {
       type: Boolean,
-      default: function () {
-        return false
-      },
     },
     position: {
       type: String as PropType<PopoverPosition>,
@@ -184,7 +182,10 @@ export default defineComponent({
       } else {
         emit("show");
       }
-      state.value = !state.value;
+      emit("update:state", !state.value);
+      if(typeof props.state === 'undefined') {
+        state.value = !state.value;
+      }
     };
 
     watch(
@@ -218,12 +219,18 @@ export default defineComponent({
       }
     );
 
+    watch(
+      () => props.state,
+      (newValue, oldValue) => {
+        state.value = newValue;
+      }
+    )
+
     watchPostEffect(() => {
       if (state.value) {
         _resize();
       }
-    }
-    )
+    })
 
     onMounted(() => {
       _resize();
