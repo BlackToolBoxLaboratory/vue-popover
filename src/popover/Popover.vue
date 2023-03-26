@@ -176,16 +176,15 @@ export default defineComponent({
     }
 
     const togglePopover = () => {
-      emit("toggle", !state.value);
-      if (state.value) {
-        emit("hide");
-      } else {
+      let newState = !state.value;
+      state.value = newState;
+      if (newState) {
         emit("show");
+      } else {
+        emit("hide");
       }
-      emit("update:state", !state.value);
-      if(typeof props.state === 'undefined') {
-        state.value = !state.value;
-      }
+      emit("toggle", newState);
+      emit("update:state", newState);
     };
 
     watch(
@@ -222,7 +221,9 @@ export default defineComponent({
     watch(
       () => props.state,
       (newValue, oldValue) => {
-        state.value = newValue;
+        if(typeof props.state !== 'undefined') {
+          state.value = newValue;
+        }
       }
     )
 

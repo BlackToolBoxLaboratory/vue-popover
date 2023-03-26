@@ -1,7 +1,7 @@
 {
   "name": "@blacktoolbox/vue-popover",
   "packageName": "btblab-vue-popover",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Popover maker based on Vue3",
   "keywords": [
     "blacktoolbox",

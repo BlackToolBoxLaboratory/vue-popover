@@ -1,3 +1,9 @@
+## v1.0.2
+
+> Mar. 26, 2023
+
+- **Issue**: Fix bug of state.
+
 ## v1.0.1
 
 > Mar. 19, 2023
